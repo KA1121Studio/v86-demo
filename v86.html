@@ -2,28 +2,23 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>ホーム</title>
-
-<!-- libv86 本体（信頼できるCDN） -->
+<title>ブラウザ in ブラウザ（軽量版）</title>
 <script src="https://cdn.jsdelivr.net/npm/v86@latest/build/libv86.js"></script>
 </head>
-
 <body>
-<h1>ブラウザ in ブラウザ（v86）</h1>
-
-<div id="screen" style="width:800px; height:600px; border:1px solid #000;"></div>
+<h1>ブラウザ in ブラウザ（v86 軽量起動）</h1>
+<div id="screen" style="width:320px; height:240px; border:1px solid #000;"></div>
 
 <script>
 var emulator = new V86Starter({
-    wasm_path: "https://copy.sh/v86/build/v86.wasm",
-    memory_size: 64 * 1024 * 1024,
-    vga_memory_size: 8 * 1024 * 1024,
-
+    wasm_path: "https://cdn.jsdelivr.net/npm/v86@latest/build/v86.wasm",
+    memory_size: 16 * 1024 * 1024, // 16MB（スマホ安定）
+    vga_memory_size: 2 * 1024 * 1024, // 2MB
     screen_container: document.getElementById("screen"),
-
     bios: { url: "https://copy.sh/v86/bios/seabios.bin" },
     vga_bios: { url: "https://copy.sh/v86/bios/vgabios.bin" },
-    cdrom: { url: "https://copy.sh/v86/images/linux.iso" }  // 軽量Linuxイメージ
+
+    // CDROM なし（スマホでは ISO 読めない）
 });
 </script>
 
