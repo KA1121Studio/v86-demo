@@ -4,21 +4,31 @@
 <meta charset="UTF-8">
 <title>ホーム</title>
 <script src="./v86/libv86.js?v=1"></script>
+<style>
+    #screen {
+        width: 640px;   /* 少し見やすく */
+        height: 480px;
+        border: 1px solid #000;
+        margin-top: 20px;
+    }
+</style>
 </head>
 <body>
 <h1>ブラウザ in ブラウザ（v86）</h1>
-<div id="screen" style="width:320px; height:240px; border:1px solid #000;"></div>
+<div id="screen"></div>
 
 <script>
-var emulator = new V86Starter({
-    wasm_path: "./v86/v86.wasm?v=1",
-    memory_size: 16 * 1024 * 1024,
-    vga_memory_size: 2 * 1024 * 1024,
-    screen_container: document.getElementById("screen"),
-    bios: { url: "./v86/seabios.bin?v=1" },
-    vga_bios: { url: "./v86/vgabios.bin?v=1" },
-    autostart: true
-});
+window.onload = function() {
+    var emulator = new V86Starter({
+        wasm_path: "./v86/v86.wasm?v=1",
+        memory_size: 16 * 1024 * 1024,
+        vga_memory_size: 2 * 1024 * 1024,
+        screen_container: document.getElementById("screen"),
+        bios: { url: "./v86/seabios.bin?v=1" },
+        vga_bios: { url: "./v86/vgabios.bin?v=1" },
+        autostart: true
+    });
+};
 </script>
 </body>
 </html>
