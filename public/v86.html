@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ブラウザ in ブラウザ（v86）</title>
-<script src="/v86/libv86.js"></script>
+<script src="/v86/libv86.js?v=1"></script>
 </head>
 
 <body>
@@ -12,13 +12,13 @@
 
 <script>
 var emulator = new V86Starter({
-    wasm_path: "/v86/v86.wasm",
+    wasm_path: "/v86/v86.wasm?v=1",
     memory_size: 16 * 1024 * 1024,
     vga_memory_size: 2 * 1024 * 1024,
     screen_container: document.getElementById("screen"),
 
-    bios: { url: "/v86/seabios.bin" },
-    vga_bios: { url: "/v86/vgabios.bin" },
+    bios: { url: "/v86/seabios.bin?v=1" },
+    vga_bios: { url: "/v86/vgabios.bin?v=1" },
 
     autostart: true
 });
