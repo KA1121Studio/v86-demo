@@ -1,0 +1,22 @@
+{
+  "headers": [
+    {
+      "source": "/v86/(.*).wasm",
+      "headers": [
+        { "key": "Content-Type", "value": "application/wasm" }
+      ]
+    },
+    {
+      "source": "/v86/(.*).js",
+      "headers": [
+        { "key": "Content-Type", "value": "application/javascript" }
+      ]
+    },
+    {
+      "source": "/v86/(.*).bin",
+      "headers": [
+        { "key": "Content-Type", "value": "application/octet-stream" }
+      ]
+    }
+  ]
+}
